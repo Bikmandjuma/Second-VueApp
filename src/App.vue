@@ -1,4 +1,12 @@
 <template>
+
+ <img :src="ImagePath" :style="{
+  height: '50px',
+  width: '50px',
+ }">
+
+  <svg :view-box.camel="viewBox" style="background-color:teal;"></svg>
+
   <h2>{{ name }} - {{ age }}&nbsp;</h2>
   <h2 v-html="province"></h2>
   <h2 v-text="country"></h2>
@@ -12,6 +20,7 @@
 
   <input :checked="IsChecked" :type="IsSubmit" :name="IsName">&nbsp;check me
   <button v-bind:disabled="IsDisabled">Click me</button>
+  <input :readonly="ReadOnlys" value="texting">
   <input :placeholder="IsValued">
   <h2 v-bind:class="isProgrammer ? 'isProgrammer' : 'IsnotProgrammer'">Bikman is Programmer</h2>
   <h2 v-bind:class="isPromoted && 'promoted'">IsPromoted Movie</h2>
@@ -31,7 +40,39 @@
     'sold_out':isSoldOut
   }">Object condition class</h2>
 
+ <a :href="LinkPath" :target="OpenLinkNewTab">{{ linkname }}</a>
+ <br>
+ <div>Comment --End of vew binding--</div>
+
+ <br>
+ <br>
+ <div>Comment --Start of part two Condition Randering--</div>
+    <h2 v-if="num === 0">Number is Zero {{ num }}</h2>
+    <h2 v-else-if="num > 0">Number is Positive {{ num }}</h2>
+    <h2 v-else-if="num < 0">Number is Negative {{ num }}</h2>
+    <h2 v-else>Input not a number {{ num }}</h2>
+
+    <div v-if="display">
+      <h2>Java</h2>
+      <h2>PHP</h2>
+      <h2>Javascript</h2>
+    </div>
+
+    <div v-if="displayDB">
+      <h2>SQL</h2>
+      <h2>MariaDB</h2>
+      <h2>PostGred</h2>
+    </div>
+
+    <h2 v-show="showElement">V-show element in VueJS</h2>
+
+ <div>Comment --End of part two Condition Randering--</div>
+ <br><br>
+ <div>Comment --Start of part three List Randering--</div>
+    <h2 v-for="name in names" :key="name">{{ name }}</h2>
+ <div>Comment --End of part three List Randering--</div>
 </template>
+
 
 <script>
   export default{
@@ -54,7 +95,21 @@
         IsChecked: true,
         IsSubmit: 'checkbox',
         IsName: 'SubmitData',
-        IsValued: 'Enter name'
+        IsValued: 'Enter name',
+        ReadOnlys: true,
+        LinkPath: 'http://wa.me/+250784287668',
+        OpenLinkNewTab: '_blank',
+        linkname: 'adibe tsap',
+        ImagePath: 'public/favicon.ico',
+        viewBox: '0 0 1500 1000',
+        VieBoxBGColor: 'bgcolor',
+
+        num: "hey",
+        display: true,
+        displayDB: true,
+        showElement:false,
+
+        names: ['Java','Php','Python']
       }
     }
   } 
