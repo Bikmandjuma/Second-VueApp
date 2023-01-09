@@ -71,6 +71,15 @@
  <div>Comment --Start of part three List Randering--</div>
     <h2 v-for="name in names" :key="name">{{ name }}</h2>
  <div>Comment --End of part three List Randering--</div>
+
+ <br>
+ <br>
+
+ <div>Comment --- Start of methods ---</div>
+ <h2>Add number {{ add() }}</h2>
+ <h2>myltiply : {{myltiply(10)}}</h2>
+ <h2>Substracting : {{ substract(subValue) }}</h2>
+ <div>Comment --- End of methods ---</div>
 </template>
 
 
@@ -100,7 +109,7 @@
         LinkPath: 'http://wa.me/+250784287668',
         OpenLinkNewTab: '_blank',
         linkname: 'adibe tsap',
-        ImagePath: 'public/favicon.ico',
+        ImagePath: '/favicon.ico',
         viewBox: '0 0 1500 1000',
         VieBoxBGColor: 'bgcolor',
 
@@ -109,8 +118,29 @@
         displayDB: true,
         showElement:false,
 
-        names: ['Java','Php','Python']
+        names: ['Java','Php','Python'],
+
+        multiplyNumber: 20,
+
+        substractNumber: 100,
+
+        subValue:22
       }
+    },
+
+    methods: {
+        add(){
+            return 5+90
+        },
+
+        myltiply(num){
+            return num * this.multiplyNumber
+        },
+
+        substract(a){
+            return a - this.substractNumber
+        }
+
     }
   } 
 
