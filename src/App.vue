@@ -1,5 +1,7 @@
 <template>
-
+<hr>
+<span>hi {{ name | fallback }}</span>
+<hr>
  <img :src="ImagePath" :style="{
   height: '50px',
   width: '50px',
@@ -128,10 +130,18 @@
       }
     },
 
+     filters: {
+          fallback : function(name){
+            return name ? name : 'there'
+          }
+      },
+
     methods: {
         add(){
             return 5+90
         },
+
+       
 
         myltiply(num){
             return num * this.multiplyNumber
